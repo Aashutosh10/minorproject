@@ -1,9 +1,5 @@
-import 'dart:html';
-
+import 'sidebar.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-
-
 class DataEntryPage extends StatefulWidget {
 
   @override
@@ -13,28 +9,15 @@ class DataEntryPage extends StatefulWidget {
 class _DataEntryPageState extends State<DataEntryPage> {
   String _selectedCategory="None" ;
   List<String> _categories = ['None','Solid Waste', 'Plastic Waste', 'Metal Waste', 'Paper Waste',];
-  late File _image;
-  Future getImage(bool isCamera)async{
-    File image;
-    if (isCamera) {
-      image=(await ImagePicker.pickImage(source: ImageSource.camera)) as File;
-    }
-    else {
-      image = (await ImagePicker.pickImage(source: ImageSource.gallery)) as File;
-    }
-   setState(() {
-     _image=image;
-   });
-  }
-
-
   @override
   Widget build(BuildContext context) {
 
     return Scaffold
       (
-      backgroundColor: Colors.teal,
+      drawer: sideNav(),
+        backgroundColor: Colors.grey[300],
       appBar: AppBar(
+        backgroundColor: Colors.green,
         title: Text('Data Entry'),
 
       ),
@@ -91,6 +74,7 @@ class _DataEntryPageState extends State<DataEntryPage> {
                       Text("Upload Image",style: TextStyle(fontSize: 20, color: Colors.black87)),
                       SizedBox(width: 50), // add some horizontal space between the widgets
                       ElevatedButton(
+                        style: ElevatedButton.styleFrom(primary: Colors.black87,minimumSize: Size(40, 40)),
                         child: Text("Upload Image"),
                         onPressed: () {
                           showDialog(
@@ -104,14 +88,13 @@ class _DataEntryPageState extends State<DataEntryPage> {
                                     onPressed: () {
                                       // Code to execute when the "Gallery" option is selected
                                     },
+
                                     child: Text("Camera"),
                                   ),
                                   SimpleDialogOption(
-                                    onPressed: () async {
+                                    onPressed: ()  {
                                       // Code to display the image picker
-                                      Navigator.pop(context);
-                                      final image = await ImagePicker.pickImage(source: ImageSource.gallery);
-                                      // Do something with the selected image (e.g. display it in an Image widget)
+
                                     },
                                     child: Text("Files"),
                                   ),
@@ -132,6 +115,7 @@ class _DataEntryPageState extends State<DataEntryPage> {
                         child: Container(),
                       ),
                       ElevatedButton(
+                        style: ElevatedButton.styleFrom(primary: Colors.black87,minimumSize: Size(80, 40)),
                         child: Text("Sell"),
                         onPressed: () {
                           showDialog(

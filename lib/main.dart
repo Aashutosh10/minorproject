@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prominor/bottomnavigation.dart';
 import 'user.dart';
 void main() {
   runApp(MyApp());
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Waste Recyclers',
-      home: HomeScreen(),
+      home: BottomNavigation(),
     );
   }
 }

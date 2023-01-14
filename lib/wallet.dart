@@ -34,11 +34,12 @@ class _WalletPageState extends State<WalletPage> {
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
-            Text('Amount to be Released: Rs$_amountToBeReleased'),
+            Text('Amount to be Released: Rs$_amountToBeReleased',style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
             SizedBox(height: 20),
-            Text('Released Amount: Rs$_releasedAmount'),
+            Text('Released Amount: Rs$_releasedAmount',),
             SizedBox(height: 20),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(primary: Colors.black87,minimumSize: Size(40, 40)),
               onPressed: () {
                 setState(() {
                   _showDialog = true;
@@ -48,6 +49,7 @@ class _WalletPageState extends State<WalletPage> {
             ),
             SizedBox(height: 20),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(primary: Colors.black87,minimumSize: Size(40, 40)),
               onPressed: () {
                 setState(() {
                   _showWithdrawDialog = true;
@@ -73,7 +75,7 @@ class _WalletPageState extends State<WalletPage> {
                 : Container(),
             _showWithdrawDialog
                 ? AlertDialog(
-                    title: Text("Withdraw Amount"),
+                    title: Text("Withdraw"),
                     content: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[

@@ -18,16 +18,7 @@ class sideNav extends StatelessWidget {
 
               style: TextStyle(color: Colors.black, fontSize: 25),
             ),
-            padding: EdgeInsets.only(top: 130, left: 100),
-            decoration: BoxDecoration(
 
-
-                image: DecorationImage(
-                    alignment: Alignment.centerRight,
-                    fit: BoxFit.fill,
-
-
-                    image: AssetImage('assets/cover.jpg'))),
           ),
 
           ListTile(
