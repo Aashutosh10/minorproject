@@ -29,14 +29,7 @@ class sideNav extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => SettingsPage()))
             },
           ),
-          ListTile(
-            leading: Icon(Icons.calendar_today),
-            title: Text('To Do'),
-            onTap: () => {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SettingsPage()))
-            },
-          ),
+
           ListTile(
             leading: Icon(Icons.border_color),
             title: Text('Feedback'),
