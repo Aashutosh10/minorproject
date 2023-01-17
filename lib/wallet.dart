@@ -24,7 +24,8 @@ class _WalletPageState extends State<WalletPage> {
         backgroundColor: Colors.green,
         title: Text('Wallet Page'),
       ),
-      body: Padding(
+    body: SingleChildScrollView(
+      child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
@@ -170,6 +171,7 @@ class _WalletPageState extends State<WalletPage> {
           ],
         ),
       ),
+    )
     );
   }
 }

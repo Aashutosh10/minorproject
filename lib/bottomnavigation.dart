@@ -14,7 +14,7 @@ class BottomNavigation extends StatefulWidget {
 class _BottomNavigationState extends State<BottomNavigation> {
   int _currentIndex = 0;
   var children = [
-    homepage(),
+    HomePage(),
     DataEntryPage(),
     WalletPage(),
   ];

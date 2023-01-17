@@ -1,28 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:prominor/sidebar.dart';
-class homepage extends StatefulWidget {
-  const homepage({Key? key}) : super(key: key);
 
-  @override
-  State<homepage> createState() => _homepageState();
-}
+class HomePage extends StatelessWidget {
+  final List<String> items = ["Item 1", "Item 2", "Item 3",'Item 4'];
 
-class _homepageState extends State<homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
       drawer: sideNav(),
-
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Text('HomePage'),
-
+        title: Text("Home Page"),
       ),
-      body: Center(
-        child: Text('Users previous items are shown here'),
+      body: Container(
+        child: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                String message;
+                if (index == 0) {
+                  message = "Hi";
+                } else if (index == 1) {
+                  message = "You have sold this on April at a price of Rs. 6 per kg.";
+                } else if (index==2){
+                  message = "Bye";
+                }
+                else {
+                  message='Bhandari';
+                }
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      content: Text(message),
+                    );
+                  },
+                );
+              },
+              child: ListTile(
+                title: Text(items[index]),
+              ),
+            );
+          },
+        ),
       ),
-
     );
   }
 }

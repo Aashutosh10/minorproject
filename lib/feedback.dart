@@ -16,11 +16,14 @@ class _FeedbackPageState extends State<FeedbackPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       drawer: sideNav(),
       appBar: AppBar(
+
         title: Text("Feedback"),
         backgroundColor: Colors.green,
       ),
+
       body: Column(
         children: <Widget>[
           Padding(

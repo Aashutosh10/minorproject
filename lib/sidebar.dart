@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:prominor/feedback.dart';
 import 'package:prominor/setting.dart';
+import 'package:prominor/profile.dart';
+import 'package:prominor/login.dart';
 
 class sideNav extends StatelessWidget {
   const sideNav({Key? key}) : super(key: key);
@@ -20,6 +22,15 @@ class sideNav extends StatelessWidget {
             ),
 
           ),
+          ListTile(
+            leading: Icon(Icons.supervised_user_circle_outlined),
+            title: Text('Profile'),
+            onTap: () => {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()))
+            },
+          ),
+
 
           ListTile(
             leading: Icon(Icons.settings),
@@ -43,7 +54,7 @@ class sideNav extends StatelessWidget {
             title: Text('Logout'),
             onTap: () => {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SettingsPage()))
+                  MaterialPageRoute(builder: (context) => LoginPage()))
             },
           ),
         ],
