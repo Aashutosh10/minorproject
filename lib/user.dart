@@ -21,14 +21,14 @@ class HomePage extends StatelessWidget {
               onTap: () {
                 String message;
                 if (index == 0) {
-                  message = "Hi";
+                  message = "You have sold this on May at a price of Rs. 4 per kg.";
                 } else if (index == 1) {
-                  message = "You have sold this on April at a price of Rs. 6 per kg.";
+                  message = "You have sold this on June at a price of Rs. 5 per kg.";
                 } else if (index==2){
-                  message = "Bye";
+                  message = "You have sold this on Juky at a price of Rs. 3 per kg.";
                 }
                 else {
-                  message='Bhandari';
+                  message="You have sold this on April at a price of Rs. 6 per kg.";
                 }
                 showDialog(
                   context: context,

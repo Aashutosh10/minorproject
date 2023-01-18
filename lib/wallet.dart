@@ -29,16 +29,53 @@ class _WalletPageState extends State<WalletPage> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
-            SizedBox(height: 20),
-            Text(
-              'Available Balance: Rs$_availableBalance',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.green, width: 2),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              padding: EdgeInsets.all(10),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(
+                        labelText: 'Available Balance'
+                    ),
+                    keyboardType: TextInputType.number,
+                    onChanged: (value) {
+                      setState(() {
+                        _availableBalance = int.parse(value);
+                      });
+                    },
+                  ),
+                  SizedBox(height: 10),
+                  TextField(
+                    decoration: InputDecoration(
+                        labelText: 'Amount to be Released'
+                    ),
+                    keyboardType: TextInputType.number,
+                    onChanged: (value) {
+                      setState(() {
+                        _amountToBeReleased = int.parse(value);
+                      });
+                    },
+                  ),
+                  SizedBox(height: 10),
+                  TextField(
+                    decoration: InputDecoration(
+                        labelText: 'Released Amount'
+                    ),
+                    keyboardType: TextInputType.number,
+                    onChanged: (value) {
+                      setState(() {
+                        _releasedAmount = int.parse(value);
+                      });
+                    },
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 20),
-            Text('Amount to be Released: Rs$_amountToBeReleased',style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
-            SizedBox(height: 20),
-            Text('Released Amount: Rs$_releasedAmount',),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             ElevatedButton(
               style: ElevatedButton.styleFrom(primary: Colors.black87,minimumSize: Size(40, 40)),
               onPressed: () {
@@ -48,7 +85,7 @@ class _WalletPageState extends State<WalletPage> {
               },
               child: Text('Make Release Request'),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             ElevatedButton(
               style: ElevatedButton.styleFrom(primary: Colors.black87,minimumSize: Size(40, 40)),
               onPressed: () {

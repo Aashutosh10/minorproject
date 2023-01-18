@@ -1,9 +1,7 @@
-
-import 'dart:io';
-import 'package:prominor/sidebar.dart';
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'package:image_picker/image_picker.dart';
-
+import 'sidebar.dart';
 class DataEntryPage extends StatefulWidget {
   @override
   _DataEntryPageState createState() => _DataEntryPageState();
@@ -31,56 +29,82 @@ class _DataEntryPageState extends State<DataEntryPage> {
         backgroundColor: Colors.green,
         title: Text('Data Entry'),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Text(
-                  'Select Category:',
-                  style: TextStyle(fontSize: 20, color: Colors.black87),
-                ),
-                SizedBox(width: 30),
-                DropdownButton(
-                  hint: Text('Select Category'),
-                  // this will display the hint
-                  underline: null,
-                  style: TextStyle(fontSize: 20, color: Colors.black87),
-                  value: _selectedCategory,
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedCategory = value as String;
-                    });
-                  },
-                  items: _categories.map((category) {
-                    return DropdownMenuItem<String>(
-                      value: category,
-                      child: Text(category),
-                    );
-                  }).toList(),
-                ),
-              ],
+            Container(
+              width: double.infinity,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Colors.black, width: 2.0),
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Select Category'
+                        '',
+                    style: TextStyle(fontSize: 25, color: Colors.black87),
+                  ),
+                  SizedBox(width: 30),
+                  DropdownButton(
+                    hint: Text('Select Category'),
+                    // this will display the hint
+                    underline: null,
+                    style: TextStyle(fontSize: 20, color: Colors.black87),
+                    value: _selectedCategory,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedCategory = value as String;
+                      });
+                    },
+                    items: _categories.map((category) {
+                      return DropdownMenuItem<String>(
+                        value: category,
+                        child: Text(category,
+                          style: TextStyle(
+                            fontSize: 14.0,
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ],
+              ),
             ),
             SizedBox(height: 50),
-            Row(
-              children: [
-                Text('Input weight:',
-                    style: TextStyle(fontSize: 20, color: Colors.black87)),
-                SizedBox(width: 30),
-                Center(
-                  child: Container(
-                    width: 200,
-                    child: TextField(
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                          hintText: 'Input weight in kilograms', border: null),
+            Container(
+              width: double.infinity,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Colors.black, width: 2.0),
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Input weight in kilogram',
+                      style: TextStyle(fontSize: 25, color: Colors.black87)),
+                  SizedBox(width: 30),
+                  Center(
+                    child: Container(
+                      width: 200,
+                      child: TextField(
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                            hintText: 'Input weight in kilograms',
+                            border: null),
+                      ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
             SizedBox(height: 50),
             Column(
@@ -90,7 +114,7 @@ class _DataEntryPageState extends State<DataEntryPage> {
                     Text("Upload Image",
                         style: TextStyle(fontSize: 20, color: Colors.black87)),
                     SizedBox(width: 50),
-                    // add some horizontal space between the widgets
+// add some horizontal space between the widgets
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           primary: Colors.black87, minimumSize: Size(40, 40)),
@@ -111,8 +135,8 @@ class _DataEntryPageState extends State<DataEntryPage> {
                                         setState(() {
                                           file = File(pickedFile.path);
                                         });
-                                        Navigator.pop(context);
                                       }
+                                      Navigator.of(context).pop();
                                     },
                                     child: Text("Camera"),
                                   ),
@@ -124,10 +148,10 @@ class _DataEntryPageState extends State<DataEntryPage> {
                                         setState(() {
                                           file = File(pickedFile.path);
                                         });
-                                        Navigator.pop(context);
                                       }
+                                      Navigator.of(context).pop();
                                     },
-                                    child: Text("Files"),
+                                    child: Text("Gallery"),
                                   ),
                                 ],
                               );
@@ -145,7 +169,7 @@ class _DataEntryPageState extends State<DataEntryPage> {
                       height: 200,
                       width: 200,
                       decoration: BoxDecoration(
-                        color: Colors.blue,
+                          color: Colors.blue,
                           image: DecorationImage(
                               image: FileImage(file!), fit: BoxFit.cover))),
               ],
@@ -169,7 +193,7 @@ class _DataEntryPageState extends State<DataEntryPage> {
                         return AlertDialog(
                           backgroundColor: Colors.blueAccent,
                           title: Text("Sell"),
-                          content: Text("You will get Npr ****"),
+                          content: Text("You will get Npr **"),
                           actions: [
                             ElevatedButton(
                               child: Text("Bargain"),
