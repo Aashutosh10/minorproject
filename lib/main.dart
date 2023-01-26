@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prominor/bottomnavigation.dart';
+import 'package:prominor/login.dart';
 import 'user.dart';
 import 'package:prominor/setting.dart';
 void main() {
@@ -17,7 +18,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Waste Recyclers',
-      home: BottomNavigation(),
+      home: LoginPage(),
     );
   }
 }

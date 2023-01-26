@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:prominor/bottomnavigation.dart';
+import 'package:prominor/newpage.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -148,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: () {
                           Navigator.push(
                             context, MaterialPageRoute(builder: (context) {
-                            return BottomNavigation();
+                            return NewPage();
                           },),);
                         },
                         child: Text(
@@ -157,7 +158,9 @@ class _LoginPageState extends State<LoginPage> {
                             fontSize: 14,
                             color: Colors.white,
                           ),
+
                         ),
+
                       ),
                     ),
                   ),

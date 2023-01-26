@@ -23,86 +23,89 @@ class _FeedbackPageState extends State<FeedbackPage> {
         title: Text("Feedback"),
         backgroundColor: Colors.green,
       ),
+      
 
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Container(
-              width: 450,
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: Colors.grey,
-                  width: 1,
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Container(
+                width: 450,
+                height: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 1,
+                  ),
                 ),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Enter your feedback',
-                  alignLabelWithHint: true,
-                  border: InputBorder.none,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Enter your feedback',
+                    alignLabelWithHint: true,
+                    border: InputBorder.none,
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      feedbackText = value;
+                    });
+                  },
                 ),
-                onChanged: (value) {
-                  setState(() {
-                    feedbackText = value;
-                  });
-                },
               ),
             ),
-          ),
-          RatingBar.builder(
-            initialRating: 2,
-              minRating: 1,
-                direction: Axis.horizontal,
-                allowHalfRating: true,
-                itemCount: 5,
-                itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                itemBuilder: (context, _) => Icon(
-                Icons.star,
-                color: Colors.amber,
-                ),
-              onRatingUpdate: (newRating) {
-              setState(() {
-              rating = newRating;
-          });
-          },
-          ),
-            ElevatedButton(
-            onPressed: () {
-              setState(() {
-                showDialog = true;
-              });
+            RatingBar.builder(
+              initialRating: 2,
+                minRating: 1,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemCount: 5,
+                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                  itemBuilder: (context, _) => Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                  ),
+                onRatingUpdate: (newRating) {
+                setState(() {
+                rating = newRating;
+            });
             },
-            child: Text('Submit'),
-          ),
-          Visibility(
-            visible: showDialog,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(height: 50),
-                AlertDialog(
-                  title: Text('Thank you for your feedback!'),
-                  actions: <Widget>[
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          feedbackText = '';
-                          rating = 0;
-                          showDialog = false;
-                        });
-                      },
-                      child: Text('OK'),
-                    ),
-                  ],
-                ),
-              ],
             ),
-          ),
+              ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  showDialog = true;
+                });
+              },
+              child: Text('Submit'),
+            ),
+            Visibility(
+              visible: showDialog,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(height: 50),
+                  AlertDialog(
+                    title: Text('Thank you for your feedback!'),
+                    actions: <Widget>[
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            feedbackText = '';
+                            rating = 0;
+                            showDialog = false;
+                          });
+                        },
+                        child: Text('OK'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
 
-        ],
+          ],
+        ),
       ),
     );
   }

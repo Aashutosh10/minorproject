@@ -3,6 +3,7 @@ import 'package:prominor/feedback.dart';
 import 'package:prominor/setting.dart';
 import 'package:prominor/profile.dart';
 import 'package:prominor/login.dart';
+import 'package:prominor/user.dart';
 
 class sideNav extends StatelessWidget {
   const sideNav({Key? key}) : super(key: key);
@@ -22,6 +23,15 @@ class sideNav extends StatelessWidget {
             ),
 
           ),
+          ListTile(
+            leading: Icon(Icons.home),
+            title: Text('Home'),
+            onTap: () => {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HomePage()))
+            },
+          ),
+
           ListTile(
             leading: Icon(Icons.supervised_user_circle_outlined),
             title: Text('Profile'),

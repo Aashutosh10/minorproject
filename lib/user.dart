@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prominor/sidebar.dart';
+import 'package:prominor/bottomnavigation.dart';
 
 class HomePage extends StatelessWidget {
   final List<String> items = ["Item 1", "Item 2", "Item 3",'Item 4'];
@@ -7,6 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       drawer: sideNav(),
       backgroundColor: Colors.grey[300],
       appBar: AppBar(

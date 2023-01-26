@@ -5,7 +5,7 @@ import 'package:prominor/dataentry.dart';
 import 'package:prominor/wallet.dart';
 
 class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({Key? key}) : super(key: key);
+  const BottomNavigation({Key? key,}) : super(key: key);
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();

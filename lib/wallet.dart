@@ -7,9 +7,9 @@ class WalletPage extends StatefulWidget {
 }
 
 class _WalletPageState extends State<WalletPage> {
-  int _availableBalance = 1000;
-  int _amountToBeReleased = 500;
-  int _releasedAmount = 200;
+  int _availableBalance = 10000;
+  int _amountToBeReleased = 5000;
+  int _releasedAmount = 2000;
   bool _showDialog = false;
   bool _showWithdrawDialog = false;
   int _withdrawAmount = 0;
